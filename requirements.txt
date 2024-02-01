@@ -1,0 +1,4 @@
+openai
+PyQt6
+numpy
+PyPDF2

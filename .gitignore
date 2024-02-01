@@ -1,3 +1,4 @@
 *.ini
 build/*
 dist/*
+__pycache__/

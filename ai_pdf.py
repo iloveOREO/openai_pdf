@@ -2,13 +2,14 @@
 
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtWidgets import QFileDialog
-from ui_aipdf import Ui_AIPDF
-import PyPDF2
 from openai import OpenAI
+import PyPDF2
 import numpy as np
 import re
 import os
-from PyQt6.QtCore import QThread
+
+from ui_aipdf import Ui_AIPDF
+
 
 CHAT_MODEL = "gpt-4-0125-preview"
 EMBEDDING_MODEL = "text-embedding-3-large"
@@ -26,7 +27,7 @@ class GPTAnswerSignals(QtCore.QObject):
 
 class GPTAnswer(QtCore.QRunnable):
     def __init__(self, question, closest_sentences, client):
-        QThread.__init__(self)
+        super(GPTAnswer, self).__init__()
         self.question = question
         self.closest_sentences = closest_sentences
         self.client = client
